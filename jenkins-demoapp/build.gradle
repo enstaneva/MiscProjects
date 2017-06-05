@@ -48,3 +48,7 @@ exclude(module: 'spring-beans')
  task docker(type:Exec) {
   commandLine 'docker', 'build', '-f', 'build/resources/main/Dockerfile', '-t', project.name + ":latest", './build'
  }
+ 
+ test {
+    ignoreFailures = true
+}
