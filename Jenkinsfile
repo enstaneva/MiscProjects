@@ -40,7 +40,7 @@ steps{
 
      echo 'In Deploy stage'
 		 dir("jenkins-demoapp"){
-			sh "docker run -p ${env.APP_PORT}:8080 --name demoapp-container -d -h ${env.NODE_NAME} demoapp"
+			sh "docker run -p 8092:8080 --name demoapp-container -d -h ${env.NODE_NAME} demoapp"
 		 }
   
 
@@ -55,7 +55,7 @@ steps{
         echo 'In Test stage'
 		dir("jenkins-demoapp"){
 		withEnv(["PATH+GRADLE=${tool 'GradleAutoInstallation'}/bin","PATH+JAVA=${tool 'JDK8u131'}/bin"]){ 
-		sh "gradle clean test -Dtest.single=SystemTestSuite -Dapp.host.name=${env.NODE_NAME} -Dapp.port=${env.APP_PORT}"    
+		sh "gradle clean test -Dtest.single=SystemTestSuite -Dapp.host.name=${env.NODE_NAME} -Dapp.port=8092"    
 		}
 		}
 }
