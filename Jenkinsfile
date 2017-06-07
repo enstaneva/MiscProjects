@@ -1,5 +1,5 @@
 pipeline{
-agent 'jenkins-demo1'
+agent { label 'jenkins-demo1'}
 
 stages{
 
