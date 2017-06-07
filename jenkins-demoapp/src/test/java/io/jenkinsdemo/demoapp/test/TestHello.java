@@ -40,7 +40,7 @@ public class TestHello {
 		Invocation.Builder invocationBuilder = webTarget.request(MediaType.TEXT_PLAIN);
 		Response response = invocationBuilder.get();
 		Assert.assertEquals(200, response.getStatus());
-		Assert.assertTrue(response.readEntity(String.class).contains("Jenkins demo"));
+		Assert.assertTrue(response.readEntity(String.class).contains("Jenkins 2 demo"));
 
 	}
 
